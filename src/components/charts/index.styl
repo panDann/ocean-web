@@ -1,0 +1,25 @@
+$convexTop = 1rem
+
+.convex-con
+    margin-top: $convexTop
+    .convex-primary
+        background: $primaryColor
+    .convex-error
+        background: $errorColor
+    .convex-warning
+        background: $warningColor
+    .convex-success
+        background: $successColor
+    .convex-common
+        position relative
+        top -($convexTop)
+        left 0
+        right 0
+        margin auto
+        width 80%
+        min-width 100px
+        padding: 1rem
+        border-radius: .2rem
+        color $white
+        text-align: center
+        font-weight: 550

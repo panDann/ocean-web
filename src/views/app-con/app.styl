@@ -1,0 +1,30 @@
+
+body 
+  margin 0
+  background $lightGrey
+
+.side_con 
+    position relative
+    width $menuWidth
+    background-image: url('../../assets/images/scenery.jpg')
+    height 100vh
+    color $white!important
+    background-color: rgba(0,0,0,.5)!important 
+    .fold-btn 
+      position absolute
+      bottom: 0
+.right-con
+  flex 2
+  position relative
+  height 100vh
+  overflow-y scroll
+  .is-scorlling
+      box-shadow: 0px 1px 3px 0px  $grey
+      z-index 999
+  // .route-view
+  //   margin-top: $appBarHeight
+.active-item
+    background-color: $menuActiveItem !important 
+
+.icon-color
+    color $white!important

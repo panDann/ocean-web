@@ -1,0 +1,32 @@
+@import './variables';
+@import './box';
+@import './flex';
+@import './color';
+@import './text';
+@import './position';
+@import './tran';
+@import './btn';
+@import './wx-components';
+
+$imgStandardSize = 5rem
+
+.hidden {
+    visibility hidden
+    }
+
+.bottom-line 
+    padding-bottom: .5rem
+    border-bottom: $bottomLine
+
+*::-webkit-scrollbar
+    height 7px
+    width: 7px
+    background: $white
+*::-webkit-scrollbar-thumb
+    background: $grey
+    border-radius: .4rem
+.fixed-progerss 
+    position fixed!important
+    z-index $progerssZIndex
+    top 0
+    width: 100%
