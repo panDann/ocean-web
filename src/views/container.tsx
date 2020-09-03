@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect,withRouter } from 'react-router-dom'
 import Login from '@src/views/login'
 import App from '@src/views/app-con/app'
 import Routes from '@src/views/routes'
@@ -11,9 +11,15 @@ import Notify from '@src/components/notify'
 
 @inject('store')
 @observer
-export default class Container extends React.Component {
+class Con extends React.Component<any,any> {
     notifyRef = React.createRef()
- 
+    
+    componentWillMount(){
+        // const { history,store: { hasLogined } }: any = this.props
+        // console.log(history);
+        // location.hash=+
+        // history.push(hasLogined ? homePath: loginPath)
+    }
     render() {
         const { store: { isLoading, hasLogined, notifyShow } }: any = this.props
         return  <HashRouter>
@@ -22,15 +28,15 @@ export default class Container extends React.Component {
                    
                     <Switch>
                         <Route path={loginPath} exact component={Login} />
-                        {hasLogined ? 
-                        <Route path={homePath} render={() =>
+                        {hasLogined ? <Route path={homePath} render={() =>
                             <App>
                                 {
                                     Routes.map((el, index) => <Route  path={el.path} key={index} exact component={el.component} />)
                                 }
                             </App>
-                        } />
-                        :<Redirect to={loginPath} />}
+                        } />:
+                        <Redirect to={loginPath} />}
+
                     </Switch>
         </HashRouter>
       
@@ -42,3 +48,4 @@ export default class Container extends React.Component {
 
 }
 
+export default (Con) 

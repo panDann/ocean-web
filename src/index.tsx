@@ -34,6 +34,6 @@ import '@src/styles/common.styl';
 
 ReactDOM.render(<Provider store={Store}>
     <Container />
-</Provider> ,document.querySelector('#app'))
+</Provider> ,document.querySelector('#root'))
 
  
