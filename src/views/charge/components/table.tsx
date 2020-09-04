@@ -39,7 +39,6 @@ const useStyles = makeStyles({
 
 export default function StickyHeadTable({rows,deleteItem}:{rows:ChargeToday[],deleteItem:Function}) {
   const classes = useStyles();
-
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>

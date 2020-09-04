@@ -128,7 +128,8 @@ export default class CenteredGrid extends React.Component<any, State> {
                                 chargeCategories.map(el => <Alert key={el.id} className='margintb10' severity='info' icon={<span>{el.number}</span>} action={<IconButton onClick={() => this.deleteChargeCategory(el.id)}>
                                     <CloseIcon />
                                 </IconButton>}>
-                                    {el.name}</Alert>)
+                                    {el.name}
+                                </Alert>)
                             }
                         </ConvexCard>
                     </Grid>

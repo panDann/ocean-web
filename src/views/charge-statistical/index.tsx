@@ -62,12 +62,12 @@ export default class CenteredGrid extends React.Component<any, State> {
             orderByName: Record<string, { sumTotal: number, sumProfit: number }> = {},
             orderByDate: Record<string, { sumTotal: number, sumProfit: number }> = {}
             data.map(el => {
-                
-                if (!orderByDate[el.date]){
-                    orderByDate[el.date] = { sumTotal: el.total, sumProfit: el.profit  }
+                el.createTime = formatDate(el.createTime, 'MMMM/mm/dd')
+                if (!orderByDate[el.createTime]){
+                    orderByDate[el.createTime] = { sumTotal: el.total, sumProfit: el.profit  }
                 }else {
-                    orderByDate[el.date].sumTotal += el.total
-                    orderByDate[el.date].sumProfit += el.profit
+                    orderByDate[el.createTime].sumTotal += el.total
+                    orderByDate[el.createTime].sumProfit += el.profit
                 }
                 
                 if (!orderByName[el.name]){
@@ -76,8 +76,9 @@ export default class CenteredGrid extends React.Component<any, State> {
                     orderByName[el.name].sumTotal += el.total
                     orderByName[el.name].sumProfit += el.profit
                 }
-                return formatDate(el.createTime, 'MMMM/mm/dd')
+                return
             })
+            
         const { totalPieProps, profitPieProps, totalAndProfitProps } = this.state
 
         totalAndProfitProps.xAxis = Object.keys(orderByDate)

@@ -15,12 +15,15 @@
       "baseUrl": ".",
       "paths":{
           "@src/*":[
-            "src/*"
+            "./src/*"
           ]
       }
     },
     "include": [
       "./src/**/*"
     ],
+    "exclude":[
+      "./mode_module/**/*"
+    ]
     
   }
