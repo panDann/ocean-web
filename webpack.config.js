@@ -8,6 +8,18 @@ module.exports = {
     entry: {
         'bundle': './src/index.tsx',
     },
+    optimization: {
+        splitChunks: {
+          cacheGroups: {
+            styles: {
+              name: 'styles',
+              test: /\.css$/,
+              chunks: 'all',
+              enforce: true,
+            },
+          },
+        },
+      },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js'

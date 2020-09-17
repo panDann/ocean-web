@@ -1,10 +1,13 @@
 import React,{useRef} from 'react';
-import Echarts from 'echarts'
+// import Echarts from 'echarts'
+import Echarts from '@src/components/echarts'
+
 import { PieProp,
     createPieOption} from './options'
 import './index.styl'
 
-    
+console.log(Echarts);
+
 export type  PieProps = PieProp & {
     width?:string
     height?:string

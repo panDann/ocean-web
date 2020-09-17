@@ -1,5 +1,5 @@
 import React,{useRef} from 'react';
-import Line from 'echarts'
+import Line from '@src/components/echarts'
 import { createLineOption,LineProp } from './options'
 import './index.styl'
 

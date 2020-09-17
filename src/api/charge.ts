@@ -1,7 +1,6 @@
 import Request from '@src/utils/fetch'
 import { $notify } from '@src/views/container-store';
 import { Validator, IRule } from '@src/utils/tool'
-import { string } from 'prop-types';
 
 export interface Category {
     id: number
@@ -73,7 +72,7 @@ const chargeTodayRules: IRule = [
             { validator: (value: number) => isNaN(value), message: '编号只能是数字' },
         ],
     }
-]
+] 
 
 export const addChargeToday = async (data: Record<string, any>) => {
 

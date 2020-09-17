@@ -22,7 +22,7 @@ import { $menuFoldWidth, $menuWidth } from "@src/styles/variables.json";
 import {pageTitleMap} from '@src/views/routes/path'
 import './app.styl'
 
-interface IState {
+interface IState { 
     pathname:string
     isFoldMenu: boolean
     isHiddenBar: boolean
@@ -41,8 +41,9 @@ class App extends React.Component<any, IState> {
             isHiddenBar: false,
             appBarTitle:pageTitleMap.get(pathname)||'标题'
         }
-    }
+    } 
     componentWillMount(){
+        
         const {history:{location:{pathname}} } = this.props
         items.findIndex(el=>el.path == pathname) == -1 && this.leapTo(localStorage.getItem(lastPathStorage) ||items[0].path)
     }
@@ -60,9 +61,7 @@ class App extends React.Component<any, IState> {
         }, 100);
 
     }
-    updatePathname(pathname:string){
-        this.setState({pathname})
-    }
+
     render(h = React.createElement) {
         // const {children} = this.props
         const {  isFoldMenu,appBarTitle,pathname, isHiddenBar } = this.state

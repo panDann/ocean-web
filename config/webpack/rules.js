@@ -1,81 +1,44 @@
 
 const path = require('path')
+const _pathResolve = (p)=>path.resolve(__dirname,p)
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const proRules = []
+if(process.env.NODE_ENV === 'production'){
+    proRules = [MiniCssExtractPlugin.loader]
+}
 module.exports=  [
     {
         test: /\.(tsx|ts)?$/,
-        use: [
-            // {
-            //     loader: 'babel-loader',
-            // },
-            'awesome-typescript-loader',
-        ]
+        loader:'awesome-typescript-loader',
+        exclude:_pathResolve('node_modules'),
+
     },
     {
         test: /\.styl?$/,
-        // use: ExtractText.extract({
-        //     fallback: {
-        //         loader: 'style-loader',  // 可以把css放在页面上
-        //         options: {
-        //             singleton: true, // 使用一个style标签
-        //             transform: './css.transform.js' // transform 是css的变形函数,相对于webpack.config的路径
-        //         }
-        //     },
-        //     // 继续处理的loader
-        //     use: [
-        //         {
-        //             loader: 'css-loader',   // 放在后面的先被解析
-        //             options: {
-        //                 minimize: true,
-        //                 modules: true,
-        //                 localIdentName: '[path][name]_[local]_[hash:base64:5]'
-        //             }
-        //         },
-        //         {
-        //             loader: 'stylus-loader'
-        //         },
-        //         {
-        //             loader: 'style-resources-loader',
-        //             options: {
-        //                 patterns: [path.resolve(__dirname, './src/styles/variables.styl')]
-        //             }
-        //         }
-        //     ]
-        // })
         use: [
             'style-loader',
+            ...proRules,
             'css-loader',
-            // {
-            //     loader: 'css-loader',
-            //     options: {
-            //       modules: true, //引入模块
-            //     }
-            //   },
             'stylus-loader',
             {
                 loader: 'style-resources-loader',
                 options: {
-                    patterns: [path.resolve(__dirname, '../../src/styles/variables.styl')]
+                    patterns: [_pathResolve( '../../src/styles/variables.styl')]
                 }
             }
-        ]
+        ],
+        exclude:_pathResolve('node_modules'),
     },
+ 
     {
         test:/\.(png|jpg)$/,
         use:{
-            loader:'url-loader',
+            loader:'file-loader',
             options:{
-
+                publicPath:'../assets',
+                outputPath:'./assets/',
             }
-        }
+        },
+        exclude:_pathResolve('node_modules'),
     },
-    // {
-    //     test:/\.(json)$/,
-    //     use:{
-    //         loader:'file-loader',
-    //         options:{
-                
-    //         }
-    //     }
-    // }
-   
 ]
