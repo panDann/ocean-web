@@ -125,9 +125,10 @@ export default class CenteredGrid extends React.Component<any, State> {
                             </Grid>
                         } color='primary'>
                             {
-                                chargeCategories.map(el => <Alert key={el.id} className='margintb10' severity='info' icon={<span>{el.number}</span>} action={<IconButton onClick={() => this.deleteChargeCategory(el.id)}>
+                                chargeCategories.map(el => <Alert  key={el.id} className='margintb10' severity='info' icon={<span>{el.number}</span>} action={<IconButton onClick={() => this.deleteChargeCategory(el.id)}>
                                     <CloseIcon />
                                 </IconButton>}>
+                                    {/* <div dangerouslySetInnerHTML={{__html:el.name}}></div> */}
                                     {el.name}
                                 </Alert>)
                             }

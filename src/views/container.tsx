@@ -44,7 +44,7 @@ class Con extends React.Component<any, IState> {
                     <Route path={homePath} render={() =>
                         <App>
                             {
-                                Routes.map((el, index) => <Route path={el.path} key={index} exact component={el.component} />)
+                                Routes.map((el, index) => <Route {...el} key={index} exact  />)
                             }
                         </App>
                     } />

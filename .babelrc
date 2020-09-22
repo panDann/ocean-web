@@ -17,5 +17,8 @@
             //     ]
             // ]
         }
-    }
+    },
+    "plugins": [
+        "syntax-dynamic-import"
+    ]
 }
